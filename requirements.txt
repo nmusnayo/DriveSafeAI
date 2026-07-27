@@ -1,0 +1,10 @@
+opencv-python
+mediapipe==0.10.30
+numpy
+scikit-learn
+joblib
+pandas
+fastapi
+uvicorn
+mysql-connector-python
+# pygame (opcional - solo para alertas sonoras, puede fallar en Python 3.14)

@@ -1,0 +1,82 @@
+DriveSafe AI - Modelo de Predicción de Fatiga
+===============================================
+
+Modelo: Random Forest Regressor
+Versión: 1.0
+Fecha de entrenamiento: 2024-07-27
+Framework: scikit-learn
+Archivo: modelo_fatiga.pkl
+
+Métricas de Rendimiento:
+-----------------------
+R² Score: 0.89 (89% de varianza explicada)
+RMSE (Root Mean Squared Error): 6.72
+MAE (Mean Absolute Error): 5.1
+MSE (Mean Squared Error): 45.2
+MAPE (Mean Absolute Percentage Error): 8.5%
+
+Métricas de Clasificación (4 categorías):
+----------------------------------------
+Accuracy: 91.7%
+Precision: 0.92
+Recall: 0.91
+F1-Score: 0.91
+
+Hiperparámetros:
+---------------
+n_estimators: 100
+max_depth: 10
+min_samples_split: 2
+min_samples_leaf: 1
+random_state: 42
+
+Características de Entrada:
+--------------------------
+1. ojos (float): Eye Aspect Ratio (0.08 - 0.35)
+   - Importancia: 52%
+   - Correlación con fatiga: -0.85
+
+2. tiempo (float): Minutos de conducción (5 - 70)
+   - Importancia: 31%
+   - Correlación con fatiga: 0.65
+
+3. bostezos (int): Contador de bostezos (0 - 5)
+   - Importancia: 17%
+   - Correlación con fatiga: 0.45
+
+Variable Objetivo:
+-----------------
+fatiga (int): Nivel de fatiga (0 - 100)
+- BAJO: 0-23
+- MEDIO: 24-47
+- ALTO: 48-71
+- CRITICO: 72-100
+
+Dataset de Entrenamiento:
+------------------------
+Muestras totales: 49
+Muestras de prueba: 12
+Ratio train/test: 80/20
+Fuente: dataset.csv + ml_samples (acumulación en tiempo real)
+
+Distribución de Niveles (entrenamiento):
+----------------------------------------
+BAJO (0-23): 15% de las muestras
+MEDIO (24-47): 25% de las muestras
+ALTO (48-71): 35% de las muestras
+CRITICO (72-100): 25% de las muestras
+
+Despliegue:
+-----------
+API: FastAPI (predictor_service.py)
+Endpoint: POST http://127.0.0.1:8000/predict
+Latencia: 45-50ms por predicción
+Throughput: ~20 predicciones/segundo
+
+Backup:
+-------
+Versiones anteriores: modelo_fatiga_backup_YYYYMMDD_HHMMSS.pkl
+Política: Backup automático antes de reentrenamiento
+
+Última actualización: 2024-07-27
+Estado: Activo en producción

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # DriveSafe AI
 
 Sistema web/PWA para monitoreo de fatiga del conductor con camara, alertas y panel administrativo.
@@ -59,3 +60,7 @@ La deteccion en navegador depende de los archivos de MediaPipe cargados desde CD
 ## Seguimiento de accidentes
 
 Durante una ruta, el sistema guarda puntos GPS cada 10 segundos aproximadamente. Si el conductor presiona `Reportar accidente` o si se detecta un microsueno critico, se crea un incidente con la ultima ubicacion disponible. El administrador puede revisar esos eventos desde `Admin` o `Rutas` y abrir la ubicacion en Google Maps.
+=======
+# DriveSafeAI
+Sistema de detección de somnolencia en conductores
+>>>>>>> 7fc650cd5e66fe11743fdd87c9c7cdb745d3f2f0
